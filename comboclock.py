@@ -6,16 +6,6 @@ import math
 # create a Tk window
 root = tk.Tk() 
 root.title("                         Clock")
-# root.configure(background="black")
-
-# # Create text widget with styling attributes
-# T = Text(root, height=400, width=395, bg="black", borderwidth=0, highlightthickness=0, foreground='#65FF00')
-# T.pack()
-# T.tag_configure('big', font=('Verdana', 41, 'bold'))
-# currentDT = datetime.datetime.now()
-# time = currentDT.strftime("%I:%M:%S %p")
-# T.insert(END, time, 'big')
-
 
 canvas = Canvas(root, width = 400, height = 400, bg='#332f28')
 currentDT = datetime.datetime.now()
