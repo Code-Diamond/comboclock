@@ -67,7 +67,7 @@ def update_label():
 
 #add exit button
 exit = Button(root, text='x', command = close)
-exit.configure(fg="white", font="Times 20 bold", highlightbackground="#332f28",relief=RAISED, padx=5,pady=0,borderwidth=0, activebackground="red", background="#332f28")
+exit.configure(fg="white", font="Times 12 bold", highlightbackground="#332f28",relief=RAISED, padx=5,pady=0,borderwidth=0, activebackground="red", background="#332f28")
 exitWindow = canvas.create_window(10,10, window=exit)
 
 #Place window in middle
