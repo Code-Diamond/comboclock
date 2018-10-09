@@ -6,14 +6,14 @@ import math
 # create a Tk window
 root = tk.Tk() 
 #put title in center
-def center(e):
-    w = int(root.winfo_width() / 3.5) # get root width and scale it ( in pixels )
-    s = 'Clock'.rjust(w//2)
-    root.title(s)
-root.bind("<Configure>", center) 
+root.overrideredirect(1)
+
+def close():
+	root.destroy()
+
 root.resizable(False, False)
 
-canvas = Canvas(root, width = 400, height = 400, bg='#332f28')
+canvas = Canvas(root, width = 400, height = 400, bg='#332f28', highlightbackground="#332f28")
 currentDT = datetime.datetime.now()
 time = currentDT.strftime("%I:%M:%S %p")
 hour = datetime.datetime.now().hour;
@@ -64,6 +64,11 @@ def update_label():
 	canvas.delete(canvas.gettags("clockInnerCircle"))
 	canvas.create_oval(centerX-7, centerY-7, centerX+7, centerY+7,tag="clockInnerCircle", width=7, fill="black")#65FF00
 	root.after(1000, update_label)
+
+#add exit button
+exit = Button(root, text='x', command = close)
+exit.configure(fg="white", font="Times 20 bold", highlightbackground="#332f28",relief=RAISED, padx=5,pady=0,borderwidth=0, activebackground="red", background="#332f28")
+exitWindow = canvas.create_window(10,10, window=exit)
 
 #Place window in middle
 w = 395 # width for the Tk root
