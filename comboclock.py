@@ -5,7 +5,13 @@ import datetime
 import math
 # create a Tk window
 root = tk.Tk() 
-root.title("                         Clock")
+#put title in center
+def center(e):
+    w = int(root.winfo_width() / 3.5) # get root width and scale it ( in pixels )
+    s = 'Clock'.rjust(w//2)
+    root.title(s)
+root.bind("<Configure>", center) 
+root.resizable(False, False)
 
 canvas = Canvas(root, width = 400, height = 400, bg='#332f28')
 currentDT = datetime.datetime.now()
